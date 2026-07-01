@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Fahmida Faiza Lira — Portfolio</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+      <style>
+         :root{
+         --ink:#1B1B2F;
+         --paper:#FAF6F0;
+         --coral:#E8542E;
+         --gold:#C9A227;
+         --slate:#6B6B7B;
+         --hair: rgba(27,27,47,0.14);
+         }
+         *{ margin:0; padding:0; box-sizing:border-box; }
+         html{ scroll-behavior:smooth; }
+         body{
+         background:var(--paper);
+         color:var(--ink);
+         font-family:'Inter', sans-serif;
+         -webkit-font-smoothing:antialiased;
+         overflow-x:hidden;
+         }
+         @media (prefers-reduced-motion: reduce){
+         *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+         }
+         h1,h2,h3{
+         font-family:'Bodoni Moda', serif;
+         font-weight:700;
+         letter-spacing:-0.01em;
+         }
+         a{ color:inherit; }
+         :focus-visible{
+         outline:2.5px solid var(--coral);
+         outline-offset:3px;
+         border-radius:2px;
+         }
+         .wrap{
+         max-width:880px;
+         margin:0 auto;
+         padding:0 28px;
+         }
+         /* ---------- NAV ---------- */
+         .nav{
+         position:sticky;
+         top:0;
+         z-index:50;
+         background:rgba(250,246,240,0.88);
+         backdrop-filter:blur(8px);
+         border-bottom:1px solid var(--hair);
+         }
+         .nav-inner{
+         max-width:880px;
+         margin:0 auto;
+         padding:16px 28px;
+         display:flex;
+         align-items:center;
+         justify-content:space-between;
+         }
+         .nav-mark{
+         font-family:'Bodoni Moda', serif;
+         font-weight:700;
+         font-size:1.05rem;
+         letter-spacing:0.01em;
+         }
+         .nav-mark span{ color:var(--coral); }
+         .nav-links{
+         display:flex;
+         gap:22px;
+         list-style:none;
+         font-size:0.82rem;
+         letter-spacing:0.06em;
+         text-transform:uppercase;
+         }
+         .nav-links a{
+         text-decoration:none;
+         color:var(--slate);
+         transition:color 0.2s ease;
+         padding:4px 0;
+         position:relative;
+         }
+         .nav-links a:hover{ color:var(--ink); }
+         @media (max-width:560px){
+         .nav-links{ gap:14px; font-size:0.7rem; }
+         }
+         /* ---------- HERO ---------- */
+         .hero{
+         padding:90px 0 70px;
+         position:relative;
+         }
+         .hero-eyebrow{
+         display:flex;
+         align-items:center;
+         gap:10px;
+         font-size:0.78rem;
+         letter-spacing:0.14em;
+         text-transform:uppercase;
+         color:var(--coral);
+         font-weight:600;
+         margin-bottom:22px;
+         opacity:0;
+         animation:rise 0.7s 0.05s ease forwards;
+         }
+         .hero-eyebrow::before{
+         content:"";
+         width:28px;
+         height:2px;
+         background:var(--coral);
+         display:inline-block;
+         }
+         .hero h1{
+         font-size:clamp(2.6rem, 7vw, 4.6rem);
+         line-height:1.04;
+         opacity:0;
+         animation:rise 0.8s 0.15s ease forwards;
+         }
+         .hero h1 em{
+         font-style:italic;
+         color:var(--coral);
+         }
+         .hero-role{
+         margin-top:22px;
+         font-size:1.05rem;
+         color:var(--slate);
+         max-width:540px;
+         line-height:1.6;
+         opacity:0;
+         animation:rise 0.8s 0.3s ease forwards;
+         }
+         .hero-tags{
+         margin-top:34px;
+         display:flex;
+         flex-wrap:wrap;
+         gap:10px;
+         opacity:0;
+         animation:rise 0.8s 0.45s ease forwards;
+         }
+         .hero-tag{
+         font-size:0.76rem;
+         letter-spacing:0.05em;
+         text-transform:uppercase;
+         border:1px solid var(--hair);
+         padding:7px 14px;
+         border-radius:30px;
+         color:var(--ink);
+         }
+         @keyframes rise{
+         from{ opacity:0; transform:translateY(14px); }
+         to{ opacity:1; transform:translateY(0); }
+         }
+         /* ---------- SECTION SHELL ---------- */
+         section{
+         padding:64px 0;
+         border-top:1px solid var(--hair);
+         }
+         .label{
+         display:flex;
+         align-items:baseline;
+         gap:14px;
+         margin-bottom:38px;
+         }
+         .label .num{
+         font-family:'Bodoni Moda', serif;
+         font-style:italic;
+         color:var(--coral);
+         font-size:1rem;
+         }
+         .label h2{
+         font-size:1.7rem;
+         }
+         /* ---------- EDUCATION: FILM-STRIP TIMELINE ---------- */
+         .reel{
+         position:relative;
+         padding-left:42px;
+         }
+         .reel::before{
+         content:"";
+         position:absolute;
+         left:10px;
+         top:6px;
+         bottom:6px;
+         width:1px;
+         background:repeating-linear-gradient(
+         to bottom,
+         var(--ink) 0,
+         var(--ink) 6px,
+         transparent 6px,
+         transparent 14px
+         );
+         opacity:0.35;
+         }
+         .frame{
+         position:relative;
+         padding-bottom:42px;
+         }
+         .frame:last-child{ padding-bottom:0; }
+         .frame::before{
+         content:"";
+         position:absolute;
+         left:-42px;
+         top:4px;
+         width:11px;
+         height:11px;
+         border-radius:50%;
+         background:var(--paper);
+         border:2px solid var(--coral);
+         }
+         .frame-tag{
+         font-size:0.74rem;
+         letter-spacing:0.1em;
+         text-transform:uppercase;
+         color:var(--coral);
+         font-weight:600;
+         margin-bottom:8px;
+         }
+         .frame h3{
+         font-size:1.3rem;
+         margin-bottom:6px;
+         }
+         .frame .meta{
+         color:var(--slate);
+         font-size:0.94rem;
+         margin-bottom:10px;
+         }
+         .frame .result{
+         display:inline-flex;
+         align-items:center;
+         gap:8px;
+         font-size:0.88rem;
+         background:var(--ink);
+         color:var(--paper);
+         padding:6px 13px;
+         border-radius:30px;
+         }
+         .frame .result b{
+         color:var(--gold);
+         font-family:'Bodoni Moda', serif;
+         font-size:0.98rem;
+         }
+         /* ---------- EXPERIENCE ---------- */
+         .exp-card{
+         border:1px solid var(--hair);
+         border-radius:10px;
+         padding:34px 30px;
+         background:rgba(27,27,47,0.02);
+         }
+         .exp-card h3{
+         font-size:1.25rem;
+         margin-bottom:10px;
+         }
+         .exp-card p{
+         color:var(--slate);
+         line-height:1.7;
+         font-size:0.97rem;
+         max-width:560px;
+         }
+         .exp-card .underline-accent{
+         text-decoration:underline;
+         text-decoration-color:var(--coral);
+         text-decoration-thickness:2px;
+         text-underline-offset:3px;
+         color:var(--ink);
+         font-weight:600;
+         }
+         /* ---------- SKILLS: TWO SPECIALTIES ---------- */
+         .skills-grid{
+         display:grid;
+         grid-template-columns:1fr 1fr;
+         gap:22px;
+         }
+         @media (max-width:620px){
+         .skills-grid{ grid-template-columns:1fr; }
+         }
+         .skill-card{
+         border:1px solid var(--hair);
+         border-radius:10px;
+         padding:30px 26px;
+         transition:transform 0.25s ease, box-shadow 0.25s ease;
+         }
+         .skill-card:hover{
+         transform:translateY(-4px);
+         box-shadow:0 14px 30px rgba(27,27,47,0.08);
+         }
+         .skill-icon{
+         width:42px;
+         height:42px;
+         border-radius:50%;
+         display:flex;
+         align-items:center;
+         justify-content:center;
+         margin-bottom:18px;
+         background:var(--ink);
+         color:var(--paper);
+         }
+         .skill-icon svg{ width:20px; height:20px; }
+         .skill-card h3{
+         font-size:1.18rem;
+         margin-bottom:8px;
+         }
+         .skill-card p{
+         color:var(--slate);
+         font-size:0.92rem;
+         line-height:1.65;
+         }
+         /* ---------- FOOTER / CONTACT ---------- */
+         footer{
+         padding:54px 0 70px;
+         border-top:1px solid var(--hair);
+         }
+         footer h2{
+         font-size:1.9rem;
+         margin-bottom:14px;
+         }
+         footer p{
+         color:var(--slate);
+         max-width:440px;
+         line-height:1.6;
+         margin-bottom:26px;
+         }
+         .contact-btn{
+         display:inline-flex;
+         align-items:center;
+         gap:10px;
+         background:var(--coral);
+         color:var(--paper);
+         text-decoration:none;
+         padding:13px 26px;
+         border-radius:30px;
+         font-size:0.88rem;
+         letter-spacing:0.04em;
+         text-transform:uppercase;
+         font-weight:600;
+         transition:background 0.2s ease;
+         }
+         .contact-btn:hover{ background:#cf4523; }
+         .foot-note{
+         margin-top:50px;
+         font-size:0.78rem;
+         color:var(--slate);
+         display:flex;
+         justify-content:space-between;
+         flex-wrap:wrap;
+         gap:8px;
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="nav">
+         <div class="nav-inner">
+            <div class="nav-mark">FAHMIDA<span>·</span>LIRA</div>
+            <ul class="nav-links">
+               <li><a href="#education">Education</a></li>
+               <li><a href="#experience">Experience</a></li>
+               <li><a href="#skills">Skills</a></li>
+               <li><a href="#contact">Contact</a></li>
+            </ul>
+         </div>
+      </nav>
+      <header class="hero wrap">
+         <p class="hero-eyebrow">Portfolio</p>
+         <h1>Fahmida Faiza<br><em>Lira.</em></h1>
+         <p class="hero-role">BBA student at Green University of Bangladesh, with a steady academic record and a growing practice in content writing and video editing — currently looking for the first project to put it to work on.</p>
+         <div class="hero-tags">
+            <span class="hero-tag">Content Writing</span>
+            <span class="hero-tag">Video Editing</span>
+            <span class="hero-tag">BBA Student</span>
+         </div>
+      </header>
+      <section id="education" class="wrap">
+         <div class="label">
+            <span class="num">01</span>
+            <h2>Education</h2>
+         </div>
+         <div class="reel">
+            <div class="frame">
+               <p class="frame-tag">In Progress</p>
+               <h3>Green University of Bangladesh</h3>
+               <p class="meta">BBA — Bachelor of Business Administration</p>
+            </div>
+            <div class="frame">
+               <p class="frame-tag">HSC</p>
+               <h3>BAF Shaheen College</h3>
+               <p class="meta">Higher Secondary Certificate</p>
+               <span class="result">GPA <b>5.00</b></span>
+            </div>
+            <div class="frame">
+               <p class="frame-tag">SSC</p>
+               <h3>Monipur High School</h3>
+               <p class="meta">Secondary School Certificate</p>
+               <span class="result">GPA <b>4.39</b></span>
+            </div>
+         </div>
+      </section>
+      <section id="experience" class="wrap">
+         <div class="label">
+            <span class="num">02</span>
+            <h2>Experience</h2>
+         </div>
+         <div class="exp-card">
+            <h3>Just getting started</h3>
+            <p>No formal work experience yet — this is <span class="underline-accent">intentional, not a gap</span>. The academic record and the two skills below are where the real groundwork has gone, and the first opportunity is what this portfolio is built to find.</p>
+         </div>
+      </section>
+      <section id="skills" class="wrap">
+         <div class="label">
+            <span class="num">03</span>
+            <h2>Skills</h2>
+         </div>
+         <div class="skills-grid">
+            <div class="skill-card">
+               <div class="skill-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                     <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                     <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                  </svg>
+               </div>
+               <h3>Video Editing</h3>
+               <p>Cutting raw footage into something watchable — pacing, transitions, and trimming with an eye for what actually holds attention.</p>
+            </div>
+            <div class="skill-card">
+               <div class="skill-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                     <path d="M12 20h9"></path>
+                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+                  </svg>
+               </div>
+               <h3>Content Writing</h3>
+               <p>Clear, audience-first writing — from captions to longer-form pieces — built to read easily and say exactly what it means.</p>
+            </div>
+         </div>
+      </section>
+      <footer id="contact" class="wrap">
+         <h2>Let's work together.</h2>
+         <p>Open to internships, freelance writing, and video editing projects. Reach out and let's talk about what you need.</p>
+         <a class="contact-btn" href="mailto:hello@example.com">Get in touch</a>
+         <div class="foot-note">
+            <span>Fahmida Faiza Lira</span>
+            <span>Dhaka, Bangladesh</span>
+         </div>
+      </footer>
+   </body>
+</html>
